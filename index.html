@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <title>resume</title>
+    <style>
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Noto Sans", sans-serif;
+            font-weight: 400;
+        }
+
+        a,
+        span {
+            color: #c6bec5;
+            font-size: 18px;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            vertical-align: middle;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 0;
+            padding: 0;
+            font-family: inherit;
+            color: #ffffff;
+        }
+
+        p {
+            margin: 0;
+            padding: 0;
+            width: 300px;
+            display: inline;
+        }
+
+        header .container {
+            border: 2px solid #eaeaea;
+            border-bottom: none;
+        }
+
+        .container {
+            max-width: 1024px;
+            margin: 0 auto;
+        }
+
+        .photo {
+            width: 150px;
+        }
+
+        .resume-head {
+            display: flex;
+            gap: 35px;
+            align-items: flex-end;
+            background-color: #8f7d8c;
+        }
+
+        .name {
+            margin-bottom: 35px;
+        }
+
+        .contact {
+            display: flex;
+            gap: 15px;
+        }
+
+        h1 {
+            font-size: 50px;
+            font-weight: 400;
+        }
+
+        h3 {
+            color: #8f7e8c;
+            font-size: 30px;
+            margin-bottom: 20px;
+            white-space: nowrap;
+        }
+
+        h6 {
+            color: #020000;
+            font-size: 20px;
+            white-space: nowrap;
+        }
+
+        .education,
+        .employment .flex {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .edu-wrapper,
+        .emp-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .wrapper {
+            display: flex;
+            margin: 0 35px;
+            gap: 30px;
+        }
+
+        .divide {
+            background-color: #eaeaea;
+            width: 100%;
+            height: 2px;
+            border-radius: 50%;
+            margin: 30px 0;
+        }
+
+        .data {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .certificate {
+            width: 100px;
+            position: relative;
+        }
+
+        .certificate img {
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        #zoomable-img {
+            transition: transform 1s ease-in-out;
+        }
+
+        .zoomed-in {
+            transform: translate(-300%, 30%) scale(7);
+        }
+
+        section .container {
+            padding-top: 40px;
+            border-top: none;
+            border: 2px solid #eaeaea;
+            border-bottom: none;
+        }
+
+        .divide-main {
+            border: 1px solid #eaeaea;
+        }
+
+        .aside p,
+        .aside span {
+            white-space: nowrap;
+        }
+
+        .personal-data p {
+            color: #c6bec5;
+            margin-bottom: 10px;
+        }
+
+        .personal-data span {
+            color: #020000;
+        }
+
+        .language-line {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .language-ua,
+        .language-ru,
+        .language-en {
+            margin-bottom: 10px;
+            position: relative;
+        }
+        .language-ua p,
+        .language-ru p,
+        .language-en p {
+            margin-bottom: 10px;
+        }
+        .language-ua span,
+        .language-ru span,
+        .language-en span {
+            width: 100%;
+            height: 10px;
+            display: block;
+            background-color: #8f7d8c;
+            border-radius: 8px;
+        }
+
+        .language-en span {
+            width: 33.333%;
+        }
+
+        .language-en::after {
+            content: "";
+            background-color: rgb(242 242 242);
+            z-index: -1;
+            width: 100%;
+            position: absolute;
+            top: 22px;
+            height: 10px;
+            border-radius: 8px;
+        }
+
+        .photo-child {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .photo-child img {
+            border-radius: 8px;
+            width: 500px;
+            height: 520px;
+        }
+
+        .photo-group {
+            margin: 0 10px 20px;
+        }
+
+        .photo-group img {
+            border-radius: 8px;
+        }
+
+        .text {
+            margin-bottom: 20px;
+            display: flex;
+            margin: 0 20px 20px;
+        }
+
+        .work {
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .wrapper {
+                flex-direction: column;
+            }
+            .container {
+                margin: 0 auto;
+            }
+            .photo-child img {
+                width: 360px;
+            }
+            .recommendations {
+                margin-bottom: 30px;
+            }
+            .zoomed-in {
+                transform: translate(300%, 30%) scale(6);
+            }
+        }
+
+        @media (max-width: 425px) {
+            h1 {
+                font-size: 30px;
+            }
+            .photo-child {
+                flex-direction: column;
+                align-items: center;
+            }
+            .photo-child img {
+                width: 360px;
+            }
+            .contact {
+                flex-direction: column;
+            }
+            .wrapper {
+                flex-direction: column;
+            }
+            .recommendations {
+                margin-bottom: 30px;
+            }
+            .zoomed-in {
+                transform: translate(126%, 30%) scale(4);
+            }
+            .education,
+            .employment .flex {
+                flex-direction: column;
+            }
+            .edu-wrapper,
+            .emp-wrapper {
+                margin-bottom: 15px;
+            }
+        }
+
+        @media (max-width: 375px) {
+            h1 {
+                font-size: 27px;
+            }
+            .resume-head {
+                gap: 10px;
+            }
+            .contact a {
+                font-size: 14px;
+            }
+            .photo-child {
+                flex-direction: column;
+                align-items: center;
+            }
+            .photo-child img {
+                width: 360px;
+            }
+            .contact {
+                flex-direction: column;
+            }
+            .wrapper {
+                flex-direction: column;
+            }
+            .recommendations {
+                margin-bottom: 30px;
+            }
+            .zoomed-in {
+                transform: translate(102%, 30%) scale(3.5);
+            }
+            .education,
+            .employment .flex {
+                flex-direction: column;
+            }
+            .edu-wrapper,
+            .emp-wrapper {
+                margin-bottom: 15px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            h1 {
+                font-size: 23px;
+            }
+            .resume-head {
+                gap: 10px;
+            }
+            .contact a {
+                font-size: 12px;
+            }
+            .photo-child {
+                flex-direction: column;
+                align-items: center;
+            }
+            .photo-child img {
+                width: 260px;
+                height: 400px;
+            }
+            .contact {
+                flex-direction: column;
+            }
+            .wrapper {
+                flex-direction: column;
+                margin: 0 5px;
+            }
+            .recommendations {
+                margin-bottom: 30px;
+            }
+            .zoomed-in {
+                transform: translate(99%, 30%) scale(3);
+            }
+            .education,
+            .employment .flex {
+                flex-direction: column;
+            }
+            .edu-wrapper,
+            .emp-wrapper {
+                margin-bottom: 15px;
+            }
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                white-space: wrap;
+            }
+            .aside {
+                width: 292px;
+            }
+            .data {
+                align-items: baseline;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="resume-head">
+                <div class="photo">
+                    <img src="/photo_2024-03-22_12-44-02.jpg" alt="photo">
+                </div>
+                <div class="name">
+                    <h1>Юлія Бабченко</h1>
+                    <div class="contact">
+                        <a href="mailto:jul.babchenko@gmail.com">jul.babchenko@gmail.com</a>
+                        <a href="tel:+380635507663">+380(63)550 76 63</a>
+                        <span>Ірпінь/Київ</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="container">
+            <div class="wrapper">
+                <div class="main">
+                    <h3>Освіта</h3>
+                    <div class="education">
+                        <div class="edu-wrapper">
+                            <h6>Молодший бакалавр</h6>
+                            <span>Коледж КиМУ, Київ</span>
+                            <p>Спеціальність "Стоматологі"</p>
+                        </div>
+                        <p class="data">вер 2020 - черв 2023</p>
+                    </div>
+                    <div class="education">
+                        <div class="edu-wrapper">
+                            <h6>Бакалавр</h6>
+                            <span>Київський міжнародний університет, Київ</span>
+                            <p>Спеціальність "Психологія"</p>
+                        </div>
+                        <p class="data">вер 2023 - донині</p>
+                    </div>
+                    <div class="divide"></div>
+                    <div class="employment">
+                        <h3>Зайнятість</h3>
+                        <div class="flex">
+                            <div class="emp-wrapper">
+                                <h6>Логіст з міжнародних перевезень</h6>
+                                <span>ТОВ "АНТОР КОМПАНІ", Київ</span>
+                                <p>Робота з клієнтами, опрацювання первинних 
+                                    документів, контроль перевезень, формування 
+                                    бази даних.
+                                </p>
+                            </div>
+                            <p class="data">лип 2021 - лист 2022</p>
+                        </div>
+                        <div class="flex">
+                            <div class="emp-wrapper">
+                                <h6>Помічник психолога</h6>
+                                <span>Malina kids` residence, Ірпінь</span>
+                            </div>
+                            <p class="data">лист 2022 - жовт 2023</p>
+                        </div>
+                        <div class="flex">
+                            <div class="emp-wrapper">
+                                <h6>Адміністратор</h6>
+                                <span>Центр реабілітації "KINETIKA", Ірпінь</span>
+                            </div>
+                            <p class="data">жовт 2023 - донині</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="divide-main"></div>
+                <div class="aside">
+                    <div class="personal-data">
+                        <h3>Особисті дані</h3>
+                        <p>Дата народження:</p>
+                        <span>26 квітня 2005 р.</span>
+                    </div>
+                    <div class="divide"></div>
+                    <div class="language">
+                        <h3>Мова</h3>
+                        <div class="language-line">
+                            <div class="language-ua">
+                                <p>Українська</p>
+                                <span></span>
+                            </div>
+                            <div class="language-ru">
+                                <p>Російська</p>
+                                <span></span>
+                            </div>
+                            <div class="language-en">
+                                <p>Англійська</p>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recommendations">
+                        <h3>Сертифікат</h3>
+                        <div class="certificate">
+                            <img src="/photo_2024-03-22_22-49-34.jpg" id="zoomable-img" alt="certificate">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="work">
+        <div class="container">
+            <div class="photo-group">
+                <img src="./photo_2024-03-23_09-18-26.jpg" alt="">
+            </div>
+            <div class="text">
+                Вітаю, мене звати Юлія. Майже рік я працювала в дитячому садочку помічником психолога-дефектолога. Ми проводили психологічний гурток та інтерактивні заходи, метою яких було виявити та скоригувати труднощі, які постають перед дітками в процесі їхнього розвитку. Працюючи з дітками 2-7 років, ми мали змогу допомагати їм розвивати навички комунікації, координації та виявляти відхилення розвитку (у молодших),  навчати їх передавати почуття в емоціях через гру, освоїти навички вербалізації,  виявити проблемні зони в підготовці до навчання в школі.
+            </div>
+            <div class="photo-child">
+                <img src="./photo_2024-03-22_11-29-00.jpg" alt="photo-child">
+                <img src="/photo_2024-03-22_11-29-01.jpg" alt="photo-child">
+            </div>
+        </div>
+    </section>
+    <script>
+        const img = document.getElementById('zoomable-img');
+
+        img.addEventListener('click', function() {
+            event.stopPropagation();
+            this.classList.toggle('zoomed-in');
+        });
+
+        document.addEventListener("click", function() {
+            if(img.classList.contains('zoomed-in')){
+
+                img.classList.remove('zoomed-in');
+            }
+        });
+    </script>
+</body>
+</html>
